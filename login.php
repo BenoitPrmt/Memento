@@ -12,7 +12,7 @@ if (count($_POST) > 0) {
         exit;
     }
 
-    $query = 'SELECT email, password FROM users WHERE email=:email';
+    $query = 'SELECT id, email, password FROM users WHERE email=:email';
     $response = $bdd->prepare($query);
     $response->execute([
         'email' => $_POST['login']
