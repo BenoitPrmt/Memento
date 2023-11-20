@@ -4,7 +4,7 @@ include 'connection.php';
 
 session_start();
 
-$query = 'SELECT id, title, content, date, created_at FROM post_it ORDER BY created_at DESC';
+$query = 'SELECT id, title, content, date, color, created_at FROM post_it ORDER BY created_at DESC';
 $response = $bdd->query($query);
 $datas = $response->fetchAll();
 
@@ -27,7 +27,7 @@ $response->closeCursor();
         <div class="postit-list">
 
             <?php foreach ($datas as $data) { ?>
-                <article class="postit">
+                <article class="postit" style="background-color: <?= $data['color'] ?>;">
                     <div class="postit-header">
                         <h2>
                             <?= $data['title'] ?>
