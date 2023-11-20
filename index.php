@@ -12,7 +12,7 @@ $response->closeCursor();
 
 ?>
 
-<?php include 'header.php' ?>
+<?php include 'layout/header.php' ?>
 
 <main>
     <section class="center">
@@ -20,7 +20,7 @@ $response->closeCursor();
         <a class="button" href="new.php" title="Ajouter un post-it">Nouveau post-it</a>
         <!-- <button>Ajouter une note</button> -->
     </section>
-    
+
     <section class="container">
         <div class="postit-list">
         
@@ -47,4 +47,4 @@ $response->closeCursor();
 
 </main>
 
-<?php include 'footer.php' ?>
+<?php include 'layout/footer.php' ?>

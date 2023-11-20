@@ -43,14 +43,16 @@ if (count($_POST) > 0) {
 
 ?>
 
-<?php include 'header.php' ?>
+<?php include 'layout/header.php' ?>
 
-<form action="register.php" method="post" enctype="multipart/form-data">
-    <input type="text" name="username" placeholder="Username">
-    <input type="email" name="email" placeholder="Email">
-    <input type="password" name="password" placeholder="Password">
-    <input type="password" name="password_conf" placeholder="Password confirmation">
-    <button type="submit">Register</button>
-</form>
+<section class="container">
+    <form action="register.php" method="post" enctype="multipart/form-data">
+        <input type="text" name="username" placeholder="Username">
+        <input type="email" name="email" placeholder="Email">
+        <input type="password" name="password" placeholder="Password">
+        <input type="password" name="password_conf" placeholder="Password confirmation">
+        <button type="submit">Register</button>
+    </form>
+</section>
 
-<?php include 'footer.php' ?>
+<?php include 'layout/footer.php' ?>

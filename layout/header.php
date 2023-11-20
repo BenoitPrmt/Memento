@@ -19,8 +19,8 @@
 
 <body>
 
-    <header>
-        <nav class="container">
+    <header class="container">
+        <nav>
             <div class="nav-start">
                 <a id="home-button" href="index.php" title="Retourner à la page d'accueil">Memento</a>
             </div>

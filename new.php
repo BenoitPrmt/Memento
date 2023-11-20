@@ -21,13 +21,15 @@ if (count($_POST) > 0) {
 
 ?>
 
-<?php include 'header.php'?>
+<?php include 'layout/header.php'?>
 
+<section class="container">
     <form action="new.php" method="post">
         <input type="text" id="title" name="title"><br>
         <textarea type="text" id="content" name="content"></textarea><br>
         <input type="date" id="date" name="date"><br>
         <button type="submit">Enregistrer</button>
     </form>
-</body>
-</html>
+</section>
+
+<?php include 'layout/footer.php' ?>

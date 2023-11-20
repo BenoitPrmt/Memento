@@ -41,16 +41,14 @@ if (count($_POST) > 0) {
 }
 ?>
 
-<?php include 'header.php' ?>
+<?php include 'layout/header.php' ?>
 
 <section class="container">
-
-<form action="login.php" method="post">
-    <input type="email" name="login" placeholder="Email">
-    <input type="password" name="password" placeholder="Password">
-    <button type="submit">Login</button>
-</form>
-
+    <form action="login.php" method="post">
+        <input type="email" name="login" placeholder="Email">
+        <input type="password" name="password" placeholder="Password">
+        <button type="submit">Login</button>
+    </form>
 </section>
 
-<?php include 'footer.php' ?>
+<?php include 'layout/footer.php' ?>
