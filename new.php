@@ -3,6 +3,8 @@ include 'connection.php';
 
 session_start();
 
+var_dump($_POST);
+
 if (isset($_SESSION['user'])) {
     if (count($_POST) > 0) {
 
@@ -12,7 +14,7 @@ if (isset($_SESSION['user'])) {
             'title' => $_POST['title'],
             'content' => $_POST['content'],
             'date' => $_POST['date'],
-            'color' => "#FFFF99"
+            'color' => $_POST['color']
         ]);
 
         header('location: index.php');
@@ -32,6 +34,7 @@ if (isset($_SESSION['user'])) {
         <input type="text" id="title" name="title"><br>
         <textarea type="text" id="content" name="content"></textarea><br>
         <input type="date" id="date" name="date"><br>
+        <input type="color" id="color" name="color" value="#ffff99">
         <button type="submit">Enregistrer</button>
     </form>
 </section>

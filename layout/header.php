@@ -26,7 +26,8 @@
             </div>
             <div class="nav-end">
                 <?php if (isset($_SESSION['user'])) { ?>
-                    <a class="button-secondary" href="disconnect.php" title="Se déconnecter">Se déconnecter</a>
+                    <a class="button" href="profil.php" title="Profil">Mon profil</a>
+                    <a id="disconnect-button" class="button-secondary" href="disconnect.php" title="Se déconnecter">Se déconnecter</a>
                 <?php } else { ?>
                     <a class="button" href="login.php" title="Se connecter">Se connecter</a>
                     <a id="register-button" class="button" href="register.php" title="S'inscrire">S'inscrire</a>
