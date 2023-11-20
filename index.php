@@ -1,9 +1,12 @@
-<?php 
+<?php
+
+
 
 ?>
 
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,31 +15,96 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
+
+    <!-- <style>
+        * {
+            outline: 1px solid red;
+        }
+    </style> -->
 </head>
+
 <body>
 
-<header>
-    <nav>
-        <ul>
-            <li><a href="">Memento</a></li>
-            <li><a href="login.php">Login</a></li>
-            <li><a href="register.php">Register</a></li>
-        </ul>
-    </nav>
-</header>
+    <header>
+        <nav class="container">
+            <div class="nav-start">
+                <a id="home-button" href="index.php" title="Retourner à la page d'accueil">Memento</a>
+            </div>
+            <div class="nav-end">
+                <a class="button" href="login.php" title="Se connecter">Se connecter</a>
+                <a id="register-button" class="button" href="register.php" title="S'inscrire">S'inscrire</a>
+            </div>
+        </nav>
+        <hr>
+    </header>
 
 
-<main>
-    <h1>Memento</h1>
-    <button>Ajouter une note</button>
+    <main>
+        <section class="center">
+            <h1>Memento</h1>
+            <a class="button" href="new.php" title="Ajouter un post-it">Nouveau post-it</a>
+            <!-- <button>Ajouter une note</button> -->
+        </section>
 
-    <article class="">
-        <h3></h3>
-        <p></p>
-        <p></p>
-    </article>
 
-</main>
+        <section class="container">
+
+            <div class="postit-list">
+                <article class="postit">
+
+                    <div class="postit-header">
+                        <h2>Titre</h2>
+                        <a href="delete.php" title="Supprimer le post-it"><img width="30" height="30" src="https://img.icons8.com/sf-black-filled/64/cancel.png" alt="remove"/></a>
+                    </div>
+                    <p>notes ohksuii</p>
+                    <p>01/01/2023</p>
+                </article>
+
+                <article class="postit">
+
+                    <div class="postit-header">
+                        <h2>Titre</h2>
+                        <img width="30" height="30" src="https://img.icons8.com/sf-black-filled/64/cancel.png" alt="cancel"/>
+                    </div>
+                    <p>notes ohksuii</p>
+                    <p>01/01/2023</p>
+                </article>
+
+                <article class="postit">
+
+                    <div class="postit-header">
+                        <h2>Titre</h2>
+                        <img width="30" height="30" src="https://img.icons8.com/sf-black-filled/64/cancel.png" alt="cancel"/>
+                    </div>
+                    <p>notes ohksuii</p>
+                    <p>01/01/2023</p>
+                </article>
+
+                <article class="postit">
+
+                    <div class="postit-header">
+                        <h2>Titre</h2>
+                        <img width="30" height="30" src="https://img.icons8.com/sf-black-filled/64/cancel.png" alt="cancel"/>
+                    </div>
+                    <p>notes ohksuii</p>
+                    <p>01/01/2023</p>
+                </article>
+
+                <article class="postit">
+
+                    <div class="postit-header">
+                        <h2>Titre</h2>
+                        <img width="30" height="30" src="https://img.icons8.com/sf-black-filled/64/cancel.png" alt="cancel"/>
+                    </div>
+                    <p>notes ohksuii</p>
+                    <p>01/01/2023</p>
+                </article>
+            </div>
+
+        </section>
+
+    </main>
 
 </body>
+
 </html>

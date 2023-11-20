@@ -1,3 +1,97 @@
 * {
-    font-family: Arial, Helvetica, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
+  text-decoration: none;
+}
+
+ul,
+li {
+  list-style-type: none;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+}
+
+.nav-start {
+  justify-content: flex-start;
+}
+
+#home-button {
+    font-size: 2rem;
+}
+
+.nav-end {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-end;
+}
+
+#register-button {
+    margin-left: 10px;
+}
+
+.container {
+  width: 70%;
+  margin: 0 auto;
+}
+
+.center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.button {
+  background-color: rgb(79, 79, 255);
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 12px;
+}
+
+.button {
+    transition-duration: 0.4s;
+}
+
+.button:hover {
+    color: rgb(79, 79, 255);
+    outline: 2px solid rgb(79, 79, 255);
+    background-color: white;
+}
+
+.postit-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.postit {
+  margin-top: 50px;
+  width: 330px;
+  padding: 15px;
+  background-color: #FFFF99;
+  box-shadow: 4px 5px 2px 0px rgba(0,0,0,0.53)
+}
+
+.postit > * {
+  font-family: "Nanum Pen Script", cursive;
+}
+
+.postit-header {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.postit-header > h2 {
+  display: flex;
+  justify-content: center;
+  margin: 0;
 }
