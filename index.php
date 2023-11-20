@@ -1,5 +1,12 @@
 <?php
 
+include 'connection.php';
+
+$query = 'SELECT id, title, content, date, created_at FROM post_it ORDER BY created_at DESC';
+$response = $bdd->query($query);
+$datas = $response->fetchAll();
+
+$response->closeCursor();
 
 
 ?>
@@ -48,59 +55,20 @@
 
 
         <section class="container">
-
             <div class="postit-list">
-                <article class="postit">
+                
+                <?php foreach ($datas as $data) { ?>
+                    <article class="postit">
+                        <div class="postit-header">
+                            <h2><?= $data['title'] ?></h2>
+                            <a href="delete.php?id=<?=$data['id']?>" title="Supprimer le post-it"><img width="30" height="30" src="https://img.icons8.com/sf-black-filled/64/cancel.png" alt="remove"/></a>
+                        </div>
+                        <p><?= $data['content'] ?></p>
+                        <p><?= $data['date'] ?></p>
+                    </article>
+                <?php } ?>
 
-                    <div class="postit-header">
-                        <h2>Titre</h2>
-                        <a href="delete.php" title="Supprimer le post-it"><img width="30" height="30" src="https://img.icons8.com/sf-black-filled/64/cancel.png" alt="remove"/></a>
-                    </div>
-                    <p>notes ohksuii</p>
-                    <p>01/01/2023</p>
-                </article>
-
-                <article class="postit">
-
-                    <div class="postit-header">
-                        <h2>Titre</h2>
-                        <img width="30" height="30" src="https://img.icons8.com/sf-black-filled/64/cancel.png" alt="cancel"/>
-                    </div>
-                    <p>notes ohksuii</p>
-                    <p>01/01/2023</p>
-                </article>
-
-                <article class="postit">
-
-                    <div class="postit-header">
-                        <h2>Titre</h2>
-                        <img width="30" height="30" src="https://img.icons8.com/sf-black-filled/64/cancel.png" alt="cancel"/>
-                    </div>
-                    <p>notes ohksuii</p>
-                    <p>01/01/2023</p>
-                </article>
-
-                <article class="postit">
-
-                    <div class="postit-header">
-                        <h2>Titre</h2>
-                        <img width="30" height="30" src="https://img.icons8.com/sf-black-filled/64/cancel.png" alt="cancel"/>
-                    </div>
-                    <p>notes ohksuii</p>
-                    <p>01/01/2023</p>
-                </article>
-
-                <article class="postit">
-
-                    <div class="postit-header">
-                        <h2>Titre</h2>
-                        <img width="30" height="30" src="https://img.icons8.com/sf-black-filled/64/cancel.png" alt="cancel"/>
-                    </div>
-                    <p>notes ohksuii</p>
-                    <p>01/01/2023</p>
-                </article>
             </div>
-
         </section>
 
     </main>
