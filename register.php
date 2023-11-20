@@ -25,10 +25,6 @@ if (count($_POST) > 0) {
         exit;
     }
 
-    $_SESSION['user'] = [
-        'email' => $_POST["email"]
-    ];
-
     $query = 'INSERT INTO users (id, username, email, password) VALUES (NULL, :username, :email, :password)';
     $response = $bdd->prepare($query);
     $response->execute([

@@ -25,6 +25,7 @@ if (count($_POST) > 0) {
     }
 
     if (password_verify($_POST["password"], $userData['password'])) {
+        $_SESSION['token'] = md5(uniqid(mt_rand(), true));
         $_SESSION['user'] = [
             'email' => $_POST["login"]
         ];

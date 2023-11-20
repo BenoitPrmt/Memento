@@ -104,8 +104,9 @@ h1 {
   box-shadow: 4px 5px 2px 0px rgba(0, 0, 0, 0.53);
 }
 
-.postit > * {
+.postit > p {
   font-family: "Nanum Pen Script", cursive;
+  font-size: 1.5rem;
 }
 
 .postit-header {

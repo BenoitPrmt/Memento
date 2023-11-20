@@ -15,8 +15,6 @@ $response->execute([
 ]);
 $userData = $response->fetch();
 
-var_dump($userData);
-
 $query = 'SELECT count(title) AS total FROM post_it WHERE user_id=:user_id';
 $response = $bdd->prepare($query);
 $response->execute([
@@ -28,7 +26,7 @@ $postCount = $response->fetch();
 
 <?php include 'layout/header.php' ?>
 
-<section class="container">
+<section class="container center">
     <h1><?= $userData['username'] ?></h1>
     <p>Vous avez <?= $postCount['total'] ?> post-it</p>
     <p>Compte créé le <?= date('d/m/Y à H:i:s', $userData['join_at']) ?></p>

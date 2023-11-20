@@ -42,7 +42,7 @@ if (isset($_SESSION['user'])) {
                                     src="https://img.icons8.com/sf-black-filled/64/cancel.png" alt="remove" /></a>
                         </div>
                         <p>
-                            <?= $data['content'] ?>
+                            <?= nl2br($data['content']) ?>
                         </p>
                         <p>
                             <?= date('d/m/Y', $data['date']) ?>
