@@ -17,13 +17,15 @@ $response->closeCursor();
 <main>
     <section class="center">
         <h1>Memento</h1>
-        <a class="button" href="new.php" title="Ajouter un post-it">Nouveau post-it</a>
-        <!-- <button>Ajouter une note</button> -->
+
+        <?php if (isset($_SESSION['user'])) { ?>
+            <a class="button" href="new.php" title="Ajouter un post-it">Nouveau post-it</a>
+        <?php } ?>
     </section>
 
     <section class="container">
         <div class="postit-list">
-        
+
             <?php foreach ($datas as $data) { ?>
                 <article class="postit">
                     <div class="postit-header">
