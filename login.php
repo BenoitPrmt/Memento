@@ -3,6 +3,8 @@ include 'connection.php';
 
 session_start();
 
+$pageTitle = "Connexion";
+
 if (count($_POST) > 0) {
     if (!strlen($_POST["login"]) > 0 || filter_var($_POST['login']) === false) {
         echo "Votre email est invalide";

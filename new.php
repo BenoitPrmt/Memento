@@ -3,6 +3,8 @@ include 'connection.php';
 
 session_start();
 
+$pageTitle = "Nouveau post-it";
+
 if (isset($_SESSION['user'])) {
     if (count($_POST) > 0) {
         $token = $_POST['token'];

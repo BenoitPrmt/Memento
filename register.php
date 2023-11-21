@@ -3,6 +3,8 @@ include 'connection.php';
 
 session_start();
 
+$pageTitle = "Inscription";
+
 if (count($_POST) > 0) {
 
     foreach ($_POST as $data) {

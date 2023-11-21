@@ -3,6 +3,8 @@ include 'connection.php';
 
 session_start();
 
+$pageTitle = "Mon profil";
+
 if (!isset($_SESSION['user'])) {
     header('location: login.php');
     exit;
