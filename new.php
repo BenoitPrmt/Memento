@@ -9,7 +9,6 @@ if (isset($_SESSION['user'])) {
     if (count($_POST) > 0) {
         $token = $_POST['token'];
         if (!$token || $token !== $_SESSION['token']) {
-            // return 405 http status code
             header($_SERVER['SERVER_PROTOCOL'] . ' 405 Method Not Allowed');
             exit;
         } else {

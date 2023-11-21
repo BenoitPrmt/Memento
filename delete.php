@@ -9,13 +9,12 @@ if (isset($_SESSION['user'])) {
     $response->execute([
         'id' => $_GET['id']
     ]);
-    
+
     header('location: index.php');
     exit();
 } else {
     header('location: index.php');
     exit();
 }
-
 
 ?>

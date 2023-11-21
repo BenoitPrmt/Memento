@@ -14,7 +14,6 @@ if (isset($_SESSION['user'])) {
 
     $response->closeCursor();
 }
-
 ?>
 
 <?php include 'layout/header.php' ?>
@@ -55,7 +54,6 @@ if (isset($_SESSION['user'])) {
 
         </div>
     </section>
-
 </main>
 
 <?php include 'layout/footer.php' ?>

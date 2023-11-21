@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 try {
     $bdd = new PDO('mysql:host=localhost;dbname=memento;charset=utf8', 'root', '');

@@ -26,7 +26,8 @@ nav {
   justify-content: flex-end;
 }
 
-#disconnect-button, #register-button {
+#disconnect-button,
+#register-button {
   margin-left: 10px;
 }
 
