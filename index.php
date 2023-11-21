@@ -5,7 +5,7 @@ include 'connection.php';
 session_start();
 
 if (isset($_SESSION['user'])) {
-    $query = 'SELECT p.id, p.user_id, p.title, p.content, UNIX_TIMESTAMP(p.date) AS date, p.color, p.created_at FROM post_it AS p INNER JOIN users AS u ON u.id = p.user_id WHERE u.email=:email ORDER BY created_at DESC';
+    $query = 'SELECT p.id, p.user_id, p.title, p.content, UNIX_TIMESTAMP(p.date) AS date, p.color, p.created_at FROM post_it AS p INNER JOIN users AS u ON u.id = p.user_id WHERE u.email=:email AND p.deleted_at IS NULL ORDER BY created_at DESC';
     $response = $bdd->prepare($query);
     $response->execute([
         'email' => $_SESSION['user']['email']
@@ -24,6 +24,7 @@ if (isset($_SESSION['user'])) {
 
         <?php if (isset($_SESSION['user'])) { ?>
             <a class="button" href="new.php" title="Ajouter un post-it">Nouveau post-it</a>
+            <a class="button-secondary" id="trash-button" href="trash.php" title="Ajouter un post-it">Corbeille</a>
         <?php } ?>
     </section>
 
@@ -37,9 +38,17 @@ if (isset($_SESSION['user'])) {
                             <h2>
                                 <?= $data['title'] ?>
                             </h2>
-                            <a href="delete.php?id=<?= $data['id'] ?>" title="Supprimer le post-it"><img width="30" height="30"
+
+                            <a href=""
+                                onclick="event.preventDefault(); document.getElementById('delete_<?= $data['id'] ?>').submit();"
+                                title="Supprimer le post-it"><img width="30" height="30"
                                     src="https://img.icons8.com/sf-black-filled/64/cancel.png" alt="remove" /></a>
                         </div>
+
+                        <form id="delete_<?= $data['id'] ?>" action="delete.php" method="post" hidden>
+                            <input type="hidden" name="id" value="<?= $data['id'] ?>">
+                        </form>
+
                         <p>
                             <?= nl2br($data['content']) ?>
                         </p>

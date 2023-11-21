@@ -4,7 +4,7 @@ include 'connection.php';
 session_start();
 
 if (isset($_SESSION['user'])) {
-    $query = 'UPDATE post_it SET deleted_at=CURRENT_TIMESTAMP() WHERE id=:id';
+    $query = 'UPDATE post_it SET deleted_at=NULL WHERE id=:id';
     $response = $bdd->prepare($query);
     $response->execute([
         'id' => $_POST['id']

@@ -89,6 +89,10 @@ h1 {
   color: white;
 }
 
+#trash-button {
+  margin-top: 25px;
+}
+
 .postit-list {
   display: flex;
   flex-wrap: wrap;
