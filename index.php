@@ -4,6 +4,10 @@ include 'connection.php';
 
 session_start();
 
+if (!isset($_SESSION['token'])) {
+    $_SESSION['token'] = md5(uniqid(mt_rand(), true));
+}
+
 if (isset($_SESSION['user'])) {
     $query = 'SELECT p.id, p.user_id, p.title, p.content, UNIX_TIMESTAMP(p.date) AS date, p.color, p.created_at FROM post_it AS p INNER JOIN users AS u ON u.id = p.user_id WHERE u.id=:id AND p.deleted_at IS NULL ORDER BY created_at DESC';
     $response = $bdd->prepare($query);

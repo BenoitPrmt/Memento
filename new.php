@@ -12,7 +12,6 @@ if (isset($_SESSION['user'])) {
             header($_SERVER['SERVER_PROTOCOL'] . ' 405 Method Not Allowed');
             exit;
         } else {
-
             if (strlen($_POST['title']) !== 0 || strlen($_POST['content']) !== 0 || strlen($_POST['date']) !== 0) {
                 $query = 'INSERT INTO post_it (id, user_id, title, content, date, color) VALUES (NULL, :user_id, :title, :content, :date, :color)';
                 $response = $bdd->prepare($query);
