@@ -10,17 +10,17 @@ if (!isset($_SESSION['user'])) {
     exit;
 }
 
-$query = 'SELECT id, username, email, password, UNIX_TIMESTAMP(created_at) AS join_at FROM users WHERE email=:email';
+$query = 'SELECT UNIX_TIMESTAMP(created_at) AS join_at FROM users WHERE id=:id';
 $response = $bdd->prepare($query);
 $response->execute([
-    'email' => $_SESSION['user']['email']
+    'id' => $_SESSION['user']['id']
 ]);
 $userData = $response->fetch();
 
-$query = 'SELECT count(title) AS total FROM post_it WHERE user_id=:user_id';
+$query = 'SELECT count(title) AS total FROM post_it WHERE user_id=:user_id AND deleted_at IS NULL';
 $response = $bdd->prepare($query);
 $response->execute([
-    'user_id' => $userData['id']
+    'user_id' => $_SESSION['user']['id']
 ]);
 $postCount = $response->fetch();
 
@@ -30,7 +30,7 @@ $postCount = $response->fetch();
 
 <section class="container center">
     <h1>
-        <?= $userData['username'] ?>
+        <?= $_SESSION['user']['username'] ?>
     </h1>
     <p>Vous avez
         <?= $postCount['total'] ?> post-it

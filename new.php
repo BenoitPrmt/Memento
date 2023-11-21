@@ -14,17 +14,10 @@ if (isset($_SESSION['user'])) {
         } else {
 
             if (strlen($_POST['title']) !== 0 || strlen($_POST['content']) !== 0 || strlen($_POST['date']) !== 0) {
-                $queryUser = 'SELECT id FROM users WHERE email=:email';
-                $responseUser = $bdd->prepare($queryUser);
-                $responseUser->execute([
-                    ':email' => $_SESSION['user']['email']
-                ]);
-                $userData = $responseUser->fetch();
-
                 $query = 'INSERT INTO post_it (id, user_id, title, content, date, color) VALUES (NULL, :user_id, :title, :content, :date, :color)';
                 $response = $bdd->prepare($query);
                 $response->execute([
-                    'user_id' => $userData['id'],
+                    'user_id' => $_SESSION['user']['id'],
                     'title' => $_POST['title'],
                     'content' => $_POST['content'],
                     'date' => $_POST['date'],

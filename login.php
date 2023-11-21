@@ -14,7 +14,7 @@ if (count($_POST) > 0) {
         exit;
     }
 
-    $query = 'SELECT id, email, password FROM users WHERE email=:email';
+    $query = 'SELECT id, username, email, password FROM users WHERE email=:email';
     $response = $bdd->prepare($query);
     $response->execute([
         'email' => $_POST['login']
@@ -29,7 +29,8 @@ if (count($_POST) > 0) {
     if (password_verify($_POST["password"], $userData['password'])) {
         $_SESSION['token'] = md5(uniqid(mt_rand(), true));
         $_SESSION['user'] = [
-            'email' => $_POST["login"]
+            'id' => $userData['id'],
+            'username' => $userData['username']
         ];
         header('location: index.php');
         exit;

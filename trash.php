@@ -7,10 +7,10 @@ $pageTitle = "Corbeille";
 
 if (isset($_SESSION['user'])) {
 
-    $query = 'SELECT p.id, p.user_id, p.title, p.content, UNIX_TIMESTAMP(p.date) AS date, p.color, p.created_at FROM post_it AS p INNER JOIN users AS u ON u.id = p.user_id WHERE u.email=:email AND p.deleted_at IS NOT NULL ORDER BY deleted_at DESC';
+    $query = 'SELECT p.id, p.user_id, p.title, p.content, UNIX_TIMESTAMP(p.date) AS date, p.color, p.created_at FROM post_it AS p INNER JOIN users AS u ON u.id = p.user_id WHERE u.id=:id AND p.deleted_at IS NOT NULL ORDER BY deleted_at DESC';
     $response = $bdd->prepare($query);
     $response->execute([
-        'email' => $_SESSION['user']['email']
+        'id' => $_SESSION['user']['id']
     ]);
     $datas = $response->fetchAll();
 
