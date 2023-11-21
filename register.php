@@ -41,6 +41,10 @@ if (count($_POST) > 0) {
 
 <?php include 'layout/header.php' ?>
 
+<section class="center">
+    <h1>Inscription</h1>
+</section>
+
 <section class="container form-section">
     <form action="register.php" method="post" enctype="multipart/form-data">
         <input type="text" name="username" placeholder="Username">

@@ -44,6 +44,10 @@ if (count($_POST) > 0) {
 
 <?php include 'layout/header.php' ?>
 
+<section class="center">
+    <h1>Connexion</h1>
+</section>
+
 <section class="container form-section">
     <form action="login.php" method="post">
         <input type="email" name="login" placeholder="Email">
