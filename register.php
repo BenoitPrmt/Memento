@@ -41,13 +41,13 @@ if (count($_POST) > 0) {
 
 <?php include 'layout/header.php' ?>
 
-<section class="container">
+<section class="container form-section">
     <form action="register.php" method="post" enctype="multipart/form-data">
         <input type="text" name="username" placeholder="Username">
         <input type="email" name="email" placeholder="Email">
         <input type="password" name="password" placeholder="Password">
         <input type="password" name="password_conf" placeholder="Password confirmation">
-        <button type="submit">Register</button>
+        <button type="submit" class="button">Register</button>
     </form>
 </section>
 

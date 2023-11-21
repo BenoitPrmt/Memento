@@ -11,25 +11,30 @@ if (isset($_SESSION['user'])) {
             header($_SERVER['SERVER_PROTOCOL'] . ' 405 Method Not Allowed');
             exit;
         } else {
-            $queryUser = 'SELECT id FROM users WHERE email=:email';
-            $responseUser = $bdd->prepare($queryUser);
-            $responseUser->execute([
-                ':email' => $_SESSION['user']['email']
-            ]);
-            $userData = $responseUser->fetch();
 
-            $query = 'INSERT INTO post_it (id, user_id, title, content, date, color) VALUES (NULL, :user_id, :title, :content, :date, :color)';
-            $response = $bdd->prepare($query);
-            $response->execute([
-                'user_id' => $userData['id'],
-                'title' => $_POST['title'],
-                'content' => $_POST['content'],
-                'date' => $_POST['date'],
-                'color' => $_POST['color']
-            ]);
+            if (strlen($_POST['title']) !== 0 || strlen($_POST['content']) !== 0 || strlen($_POST['date']) !== 0) {
+                $queryUser = 'SELECT id FROM users WHERE email=:email';
+                $responseUser = $bdd->prepare($queryUser);
+                $responseUser->execute([
+                    ':email' => $_SESSION['user']['email']
+                ]);
+                $userData = $responseUser->fetch();
 
-            header('location: index.php');
-            exit();
+                $query = 'INSERT INTO post_it (id, user_id, title, content, date, color) VALUES (NULL, :user_id, :title, :content, :date, :color)';
+                $response = $bdd->prepare($query);
+                $response->execute([
+                    'user_id' => $userData['id'],
+                    'title' => $_POST['title'],
+                    'content' => $_POST['content'],
+                    'date' => $_POST['date'],
+                    'color' => $_POST['color']
+                ]);
+
+                header('location: index.php');
+                exit();
+            } else {
+                echo '<p class="error-text">Veuillez renseigner tous les champs</p>';
+            }
         }
     }
 } else {
@@ -41,14 +46,23 @@ if (isset($_SESSION['user'])) {
 
 <?php include 'layout/header.php' ?>
 
-<section class="container">
+<section class="container form-section">
     <form action="new.php" method="post">
-        <input type="text" id="title" name="title"><br>
-        <textarea type="text" id="content" name="content"></textarea><br>
+        <label for="title">Titre</label>
+        <input type="text" id="title" name="title" placeholder="Titre du post-it"><br>
+
+        <label for="content">Contenu</label>
+        <textarea type="text" id="content" name="content" rows="10" placeholder="Contenu du post-it"></textarea><br>
+
+        <label for="date">Date de la tâche</label>
         <input type="date" id="date" name="date"><br>
-        <input type="color" id="color" name="color" value="#ffff99">
+
+        <label for="color">Couleur du post-it</label>
+        <input type="color" id="color" name="color" value="#ffff99"><br>
+
         <input type="hidden" name="token" value="<?php echo $_SESSION['token'] ?? '' ?>">
-        <button type="submit">Enregistrer</button>
+
+        <button type="submit" class="button">Enregistrer</button>
     </form>
 </section>
 
